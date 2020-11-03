@@ -12,6 +12,16 @@ body{
   font-family: sans-serif;
   color: #333;
 }
+
+#start:hover{
+  background-color:black;
+  color:white;
+} 
+
+#buttonOne:hover,#buttonTwo:hover,#buttonThree:hover ,#buttonFour:hover{
+  background-color:black;
+  color:white;
+}
  
  #time{
    text-align:right;
@@ -19,14 +29,14 @@ body{
    /* border:ridge; */
  }
 
-.container , h2{
+ .container , h2{
     text-align: center;
     /* margin-top: 300px; */
-}
+ }
 .container,h3{
     text-align: center;
-    font-family: sans-serif;
-}
+    font-family: sans-serif; 
+}  
 
 /* #quizText{
   font-weight: 300;
@@ -54,7 +64,6 @@ body{
         display: flex;
         width: 20%;
         border: solid;
-        background-color:;
         padding: 14px 28px;
         font-size: 16px;
         text-align: center;
@@ -85,6 +94,4 @@ body{
         cursor: pointer;
         margin-bottom: 20px;
       }
-      #submit:hover{
-        background-color: #3a8;
-      } */
+      

@@ -39,10 +39,16 @@ var questions =[
         question:"5.Which of the following is not considered a JavaScript operator?",
         choices:["A. new","B. this","C. delete","D. typeof"],
         answer: "B. this"
+    },
+
+    {
+        question:"6. Which of the following is not JavaScript Data Types?",
+        choices:["A. Undefined","B. Number","C. Boolean","D. Float"],
+        answer: "D. Float"
     }
 
-];
 
+];
 
 //Event Listener
 
@@ -53,15 +59,14 @@ function countDown()
 {
     quizEl.classList.remove("hide");
      introEl.innerHTML="";
-     var timeInterval =setInterval(function()
+     var timeInterval = setInterval(function()
     {
         timeEl.textContent=timeleft +" seconds remaining";
         timeleft--;
         if(timeleft<0)
         {
-        timeEl.textContent="Time over";
         clearInterval(timeInterval);
-        timeEl.textContent="";
+        timeEl.textContent="Time Over";
         }
     },500);
     
@@ -75,6 +80,14 @@ function countDown()
    
  }
 
+//  function colorStart()
+//  {
+//     changeColor('grey'); 
+
+//  }
+//  function changeColor(color) { 
+//     document.body.style.background = color; 
+//  }
 
 buttonOneEl.addEventListener("click",checkAnswer);
 buttonTwoEl.addEventListener("click",checkAnswer);
@@ -86,24 +99,23 @@ function checkAnswer(event)
 {
     if(event.target.innerHTML === questions[currentPosition].answer)
     {
-       console.log("correct");
-       messageEl.innerHTML="correct";
-    // event.target.innerHTML.style.color='pink';
-    //   nextQuestion();
+
+    //    messageEl.innerHTML="Yay!!! You have answered this question Correctly.";
+    //    event.target.innerHTML.style.color='pink';
+       nextQuestion();
     }
     else{
-        console.log("wrong");
-        console.log("time El value is " ,timeEl);
-        timeEl=timeEl-10;
-        console.log("time El value is " ,timeEl);
-  nextQuestion();
+        messageEl.innerHTML="Sorry!! This is the Wrong Answer";
+        timeleft=timeleft-10;
+        nextQuestion();
         }
+        
 }
 
 function nextQuestion()
 {
 currentPosition++;
-messageEl.innerHTML="";
+ messageEl.innerHTML="";
 quizTextEl.textContent= questions[currentPosition].question;
 buttonOneEl.innerHTML= questions[currentPosition].choices[0];
 buttonTwoEl.innerHTML= questions[currentPosition].choices[1];
