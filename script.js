@@ -9,9 +9,14 @@ var buttonFourEl=document.querySelector("#buttonFour");
 var timeEl=document.querySelector("#time");
 var introEl=document.querySelector("#intro");
 var messageEl=document.querySelector("#message");
-var currentPosition=0;
 
-timeleft=40;
+var highScoresEl=document.querySelector("#highScores");
+var currentPosition=0;
+var scores=0;
+timeleft=60;
+var timeOver;
+
+var highscores= JSON.parse(localStorage.getItem("scores")) || []
 
 var questions =[
 
@@ -46,83 +51,104 @@ var questions =[
         choices:["A. Undefined","B. Number","C. Boolean","D. Float"],
         answer: "D. Float"
     }
-
-
 ];
 
-//Event Listener
-
-startEl.addEventListener("click",countDown)
-
-
-function countDown()
-{
-    quizEl.classList.remove("hide");
-     introEl.innerHTML="";
-     var timeInterval = setInterval(function()
-    {
-        timeEl.textContent=timeleft +" seconds remaining";
-        timeleft--;
-        if(timeleft<0)
-        {
-        clearInterval(timeInterval);
-        timeEl.textContent="Time Over";
-        }
-    },500);
-    
-    quizTextEl.textContent = questions[0].question;
-    buttonOneEl.innerHTML = questions[0].choices[0];
-    buttonTwoEl.innerHTML = questions[0].choices[1];
-    buttonThreeEl.innerHTML = questions[0].choices[2];
-    buttonFourEl.innerHTML = questions[0].choices[3];
-   
-    // quizEl.classlist.remove("hide");
-   
- }
-
-//  function colorStart()
-//  {
-//     changeColor('grey'); 
-
-//  }
-//  function changeColor(color) { 
-//     document.body.style.background = color; 
-//  }
-
+startEl.addEventListener("click",countDown);
 buttonOneEl.addEventListener("click",checkAnswer);
 buttonTwoEl.addEventListener("click",checkAnswer);
 buttonThreeEl.addEventListener("click",checkAnswer);
 buttonFourEl.addEventListener("click",checkAnswer);
 
 
+
+function countDown()
+{
+    quizEl.classList.remove("hide");
+     introEl.innerHTML="";
+    timeInterval = setInterval(function()
+    {
+        timeEl.textContent=timeleft +" seconds remaining";
+        timeleft--;
+        if(timeleft<=0)
+        {
+        gameOver();
+        }
+    },1000);
+}
+    quizTextEl.textContent = questions[0].question;
+    buttonOneEl.innerHTML = questions[0].choices[0];
+    buttonTwoEl.innerHTML = questions[0].choices[1];
+    buttonThreeEl.innerHTML = questions[0].choices[2];
+    buttonFourEl.innerHTML = questions[0].choices[3];
+
+    function gameOver(){
+        clearInterval(timeInterval);
+        timeEl.textContent="Game Over";
+        quizEl.classList.add("hide")
+        highScoresEl.classList.remove("hide");
+    }
+   
+
+
 function checkAnswer(event)
 {
     if(event.target.innerHTML === questions[currentPosition].answer)
     {
-
-    //    messageEl.innerHTML="Yay!!! You have answered this question Correctly.";
-    //    event.target.innerHTML.style.color='pink';
-       nextQuestion();
+       messageEl.innerHTML="Yay!!! You have answered this question Correctly. "
+       messageEl.style.color="green";
+       setTimeout (nextQuestion,1000);
+       
     }
     else{
-        messageEl.innerHTML="Sorry!! This is the Wrong Answer";
         timeleft=timeleft-10;
-        nextQuestion();
+        messageEl.innerHTML="Sorry!! This is the Wrong. Correct ans is : "+questions[currentPosition].answer;
+        messageEl.style.color="red";
+        setTimeout (nextQuestion,1000);
         }
         
 }
-
+    
 function nextQuestion()
 {
+    // event.target.style.backgroundColor='';
+messageEl.style.color="white";
 currentPosition++;
- messageEl.innerHTML="";
+console.log("question.length is" +questions.length);
+if(currentPosition==questions.length)
+{
+    console.log("out of ques");
+    gameOver();
+}
+else{
+messageEl.innerHTML="";
 quizTextEl.textContent= questions[currentPosition].question;
 buttonOneEl.innerHTML= questions[currentPosition].choices[0];
 buttonTwoEl.innerHTML= questions[currentPosition].choices[1];
 buttonThreeEl.innerHTML= questions[currentPosition].choices[2];
 buttonFourEl.innerHTML= questions[currentPosition].choices[3];
-}
+
+}}
 
 
-// answerContainers[questionNumber].style.color = 'lightgreen';
-// answerContainers[questionNumber].style.color = 'red';
+document.querySelector("#scoreSubmit").addEventListener("click",function(event){
+    var userName=document.querySelector("#userName").value;
+    document.querySelector("#scoreSubmit").classList.add("hide");
+    document.querySelector("#userName").classList.add("hide");
+    document.querySelector("#scoreList").classList.remove("hide")
+    var thisScore = {
+        name:userName,
+        score:timeleft
+    }
+
+    highscores.sort(function(a, b){return a-b});
+    highscores.push(thisScore);
+    localStorage.setItem("scores",JSON.stringify(highscores))
+
+    for(score of highscores){
+        document.querySelector("#scoreList").innerHTML+=`<tr>
+        
+        <td>${score.name}</td>
+        <td>${score.score}</td>
+        </tr>`;
+    }
+})
