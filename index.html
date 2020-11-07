@@ -8,22 +8,25 @@
 </head>
 <body>
     
-    <h1><class id="time">Total Time 60 seconds</h1>
+    <h1><class id="time">Total Time 60 seconds</h1>  <!--Setting timer -->
     
-   <div id="intro">
+        <!-- This the main start page -->
+  <div id="intro">    
     <h2><u>Coding Quiz Challenge</u></h2>
     <p><h3>Answer the Questions related with Programming. <br>Remember each Wrong Answer will deduct 10 sec from given time. </h3></p>
-     <button  id="start">Start</button>
+     <button  id="start">Start</button>  <!-- Start Button -->
 </div>
-     <div id="quiz" class="hide" >
+<!-- adding class hide -->
+     <div id="quiz" class="hide" >   
          <h2 id="quizText"></h2>
-       
+       <!-- All these buttons are for answers -->
         <button id="buttonOne"  class="answer"></button>
         <button id="buttonTwo" class="answer"></button>
         <button id="buttonThree" class="answer"></button>
         <button id="buttonFour" class="answer"></button>
         <h2 id="message"></h2>
         </div>
+        <!-- Highscores is to store user name and score -->
         <div id="highScores" class="hide"><u><strong>HighScores</strong></u>
             <input id="userName" type="text" placeholder="Enter Your Name Here"/>
             <button id="scoreSubmit">Submit Score</button>

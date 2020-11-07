@@ -1,23 +1,25 @@
+/* displaying nothing in this class */
 .hide{
-  display: none;
+  display: none; 
 }
 
 .hideButton{
   display: none;
 }
-
+/* changing size , color of the body */
 body{
   background-color: peachpuff; 
   font-size: 15px;
   font-family: sans-serif;
   color: #333;
 }
-
+/* changing backgroundColor to black when move mouse on it */
 #start:hover{
   background-color:black;
   color:white;
 } 
 
+/* changing backgroundColor to black when move mouse on it */
 #buttonOne:hover,#buttonTwo:hover,#buttonThree:hover ,#buttonFour:hover{
   background-color:black;
   color:white;
@@ -37,7 +39,7 @@ body{
 }  
 
 
-
+/* changing start button  size, color, alignment*/
 #start
    {
         display: block;
@@ -49,7 +51,7 @@ body{
         margin-left:630px ;
         border-radius: 12px;
       }
-
+/* changing answer button  size, color, alignment*/
       #buttonOne,#buttonTwo,#buttonThree,#buttonFour
       {
         display: flex;
@@ -68,7 +70,5 @@ body{
         display: flex;
         flex-wrap: wrap;
       }
-      .message{
-        color:green ;
-      }
+      
      
