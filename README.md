@@ -23,38 +23,19 @@ To install this code, download the zip file, or use GitHub's guidelines to clone
 3.CSS
 
 ## Psuedo code
-Create a timer attached to a start button with a starting value of 60.
-When start button  is pressed start a reverse countdown
-When countdown starts, start quiz
-Append the question: choices
-When user selects the right answer, textcontent "Correct!"
-When user selects the right answer, textcontent "Wrong!"
-Final score will keep track of how many the user got right
-Left over time will be deducted from final score
-Final Score Appended page
-Captures local storage
-Travels to another HTML
-Retrieved highscores
-This project has script features of:
-Questions contained in an array variable with objects
-Variable declaration area
-An event listener (onclick) that generates time interval
-A function to render the questions and choices on the page using a for loop
-An event listener on all list choices
-A comparison statement to compare correct answers to choices
-An appended page showing the final stats of the individual user with input area for initials, captures local storage
-Highscores retreived local storage
-This project has media Queries for:
-max-width: 980px
-Adjusts body and container width
-max-width: 786px
-Adjusts body and container width
-Adjusts buttons
-max-width: 640px
-Adjusts body and container width
-Adjusts buttons to be centered and stacked
-To Execute File:
-Open in browser
+First create main HTML page that had information abt quiz and has START QUIZ button. This time all other classes should be hidden.
+Then  create start button Event listener , when click on it the next classe for question should be visible and timer should start.
+Then when click on the right answer , it should check whether the ans is correct or not.
+    if ans is correct, then the message will be displayed in green color that ans is correct.
+          and it should wait for a sec (timeout) and then move to the next question.
+    else 10 sec should be deducted from time and message should be displayed in red color that this is wrong ans.
+          and it should wait for a sec (timeout) and then move to the next question.
+ It always check for if time is still left and its not out of questions.
+    if yes  then call game over,
+Then after the game is over, it should ask for the user name and scores should be updated with the time left.
+Now we save this scores and usernname in the local storage, to do that change it first to string using stringify.
+Then push these scores to highscores.         
+
 
 ## Summary
 This project emphasizes the use of using Javascript to make dynamic changes to an HMTL document
