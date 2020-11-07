@@ -102,14 +102,14 @@ function checkAnswer(event)
     {
        messageEl.innerHTML="Yay!!! You have answered this question Correctly. " // message to display if ans is correct
        messageEl.style.color="green";
-       setTimeout (nextQuestion,10000);
+       setTimeout (nextQuestion,1000);
        
     }
     else{
         timeleft=timeleft-10; // if ans is wron deducting 10 sec from timer
         messageEl.innerHTML="Sorry!! This is the Wrong. Correct ans is : "+questions[currentPosition].answer;
         messageEl.style.color="red";   // change color to red if ans wrong
-        setTimeout (nextQuestion,10000);
+        setTimeout (nextQuestion,1000);
         }
         
 }

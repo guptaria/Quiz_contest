@@ -18,9 +18,9 @@ This is a quiz application using HTML, CSS, and Javascript. This application emp
 To install this code, download the zip file, or use GitHub's guidelines to clone the repository., Links are provided below in resources.
 
 ## Technologies Used
-JavaScript
-HTML
-CSS
+1.JavaScript<br>
+2.HTML<br>
+3.CSS
 
 ## Psuedo code
 Create a timer attached to a start button with a starting value of 60.
@@ -82,10 +82,10 @@ Submitting your initials to get the scores stored.
 ![](assets/screenshot6.png)
 
 ## ResourceReffered
-[For Time Interval] https://www.w3schools.com/jsref/met_win_setinterval.asp
-[For Quiz concepts] https://stackoverflow.com/questions/3275164/javascript-quiz
+[For Time Interval] https://www.w3schools.com/jsref/met_win_setinterval.asp <br>
+[For Quiz concepts] https://stackoverflow.com/questions/3275164/javascript-quiz 
 
 ## Github_Links
-[**URL of My Github Repository**]()
-[**URL of Deployed Application**]()
+[**URL of My Github Repository**](https://github.com/guptaria/Quiz_contest)<br>
+[**URL of Deployed Application**](https://guptaria.github.io/Quiz_contest/.)
 
